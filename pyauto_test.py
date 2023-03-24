@@ -3,12 +3,14 @@ import time
 import os
 from PIL import Image
 
-start_time = 5
+start_time = 3
 start_num = 1
-end_num = 551
+end_num = 86
 folder_path = "C:/Users/codetree/Desktop/screenshot"
 image_prefix = "img"
 pdf_name = "test"
+
+numbering = 1
 
 # time.sleep(2)
 # print(pyautogui.position())
@@ -20,16 +22,31 @@ while start_time > 0:
     start_time -= 1
 
 while True:
+
+    # 단면
     pyautogui.screenshot(f'{folder_path}/{image_prefix}_{str(start_num).zfill(4)}.png', region=(820, 85, 970, 1255))
 
-    time.sleep(1) # 스크린샷 시간 간격이 필요하다면 추가한다. 1은 초이다.
-
-    # pyautogui.press('right')
-    pyautogui.click(2519, 712, duration=0.1)
+    pyautogui.press('right')
+    # pyautogui.click(2519, 712, duration=0.1)
+    time.sleep(0.5) # 스크린샷 시간 간격이 필요하다면 추가한다. 1은 초이다.
 
     start_num += 1
     if(start_num == end_num):
         break
+
+    # 양면
+    # pyautogui.screenshot(f'{folder_path}/{image_prefix}_{str(numbering).zfill(4)}.png', region=(185, 100, 1120, 1200))
+    # numbering += 1
+    # pyautogui.screenshot(f'{folder_path}/{image_prefix}_{str(numbering).zfill(4)}.png', region=(1309, 100, 1120, 1200))
+    # numbering += 1
+    # pyautogui.press('right')
+    # # pyautogui.click(2519, 712, duration=0.1)
+    # time.sleep(1) # 스크린샷 시간 간격이 필요하다면 추가한다. 1은 초이다.
+
+    # start_num += 1
+    # if(start_num == end_num):
+    #     break
+
 
 print("이미지 스크린샷 완료..")
 print("이미지 스크린샷 완료..")
