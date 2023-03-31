@@ -3,9 +3,9 @@ import time
 import os
 from PIL import Image
 
-start_time = 3
+start_time = 5
 start_num = 1
-end_num = 86
+end_num = 303
 folder_path = "C:/Users/codetree/Desktop/screenshot"
 image_prefix = "img"
 pdf_name = "test"
@@ -35,13 +35,13 @@ while True:
         break
 
     # 양면
-    # pyautogui.screenshot(f'{folder_path}/{image_prefix}_{str(numbering).zfill(4)}.png', region=(185, 100, 1120, 1200))
+    # pyautogui.screenshot(f'{folder_path}/{image_prefix}_{str(numbering).zfill(4)}.png', region=(33, 33, 1250, 1350))
     # numbering += 1
-    # pyautogui.screenshot(f'{folder_path}/{image_prefix}_{str(numbering).zfill(4)}.png', region=(1309, 100, 1120, 1200))
+    # pyautogui.screenshot(f'{folder_path}/{image_prefix}_{str(numbering).zfill(4)}.png', region=(1282, 33, 1250, 1350))
     # numbering += 1
-    # pyautogui.press('right')
-    # # pyautogui.click(2519, 712, duration=0.1)
-    # time.sleep(1) # 스크린샷 시간 간격이 필요하다면 추가한다. 1은 초이다.
+    # # pyautogui.press('right')
+    # pyautogui.click(2537, 717, duration=0.1)
+    # time.sleep(1.5) # 스크린샷 시간 간격이 필요하다면 추가한다. 1은 초이다.
 
     # start_num += 1
     # if(start_num == end_num):
@@ -55,7 +55,7 @@ print("이미지 스크린샷 완료..")
 print()
 print()
 
-print("pdf 변환 시작")
+print("pdf 변환 전처리 시작")
 
 dir_files = os.listdir(folder_path)
 file_list = []
@@ -74,6 +74,10 @@ for file in file_list:
     img_list.append(cvt_rgb)
     now += 1
 
+print()
+print()
+print()
+print("pdf 변환 시작")
 img_list[0].save(folder_path + "/" + pdf_name + ".pdf", save_all=True, append_images=img_list[1:])
 
 print("pdf 변환 끝!!")
